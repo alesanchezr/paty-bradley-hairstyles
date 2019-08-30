@@ -59,3 +59,15 @@ $typeManager->newType(['type' => 'course', 'class' => 'Course'])->register();
 ```
 Here is more info on [how to create the post-types](https://github.com/alesanchezr/wpas-wordpress-dash/tree/master/src/WPAS/Types).
 
+### Connecting to the server:
+
+ssh $HOSTGATOR_USER@108.179.232.58 -p2222
+
+To restart the agent
+eval "$(ssh-agent -s)"
+
+change key permissions
+chmod 400 ~/.ssh/keyname
+
+To add the key
+ssh-add <(echo "$HOSTGATOR_SSH")
