@@ -11,14 +11,14 @@ require get_template_directory() . '/customizer/front-end-js.php';
 if(isset($wp_customize)) {
 	require get_template_directory() . '/customizer/custom-controls/category-selection/category-selection.php';
 }
-	
+
 /* Add additional options to Theme Customizer */
-function portfolio_init_customizer( $wp_customize ) {		
+function portfolio_init_customizer( $wp_customize ) {
 	// Modify existing controls and settings
 	$wp_customize->get_setting('background_color')->transport = 'postMessage';
 	$wp_customize->get_setting('blogname')->transport = 'postMessage';
 	$wp_customize->get_setting('blogdescription')->transport = 'postMessage';
-	
+
 	// Add new settings sections
     $wp_customize->add_section(
 	    'portfolio_font_options',
@@ -27,7 +27,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'priority'  => 200
     	)
     );
-    
+
     $wp_customize->add_section(
 	    'portfolio_layout_options',
 	    array(
@@ -35,7 +35,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'priority'  => 300
     	)
     );
-    
+
     $wp_customize->add_section(
         'portfolio_effects_options',
         array(
@@ -43,7 +43,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'priority'  => 350
     	)
     );
-    
+
     $wp_customize->add_section(
     	'portfolio_post_options',
 	    array(
@@ -61,7 +61,7 @@ function portfolio_init_customizer( $wp_customize ) {
         	'priority'  => 500
     	)
     );
-    
+
     // Add new settings
     $wp_customize->add_setting(
     	'portfolio_logo',
@@ -71,7 +71,7 @@ function portfolio_init_customizer( $wp_customize ) {
     		'sanitize_callback' => 'esc_url_raw'
     	)
     );
-    
+
     $wp_customize->add_setting(
     	'portfolio_logo_autosize',
     	array(
@@ -80,17 +80,17 @@ function portfolio_init_customizer( $wp_customize ) {
     		'sanitize_callback' => 'portfolio_sanitize_checkbox'
     	)
     );
-    
-    $wp_customize->add_setting( 
-    	'portfolio_primary_color', 
-    	array( 
-    		'default' => '#5cc1a9', 
+
+    $wp_customize->add_setting(
+    	'portfolio_primary_color',
+    	array(
+    		'default' => '#5cc1a9',
     		'capability' => 'edit_theme_options',
     		'transport' => 'postMessage',
     		'sanitize_callback' => 'sanitize_hex_color'
     	)
     );
-    
+
 	$wp_customize->add_setting(
 		'portfolio_font',
 		array(
@@ -99,16 +99,16 @@ function portfolio_init_customizer( $wp_customize ) {
 		    'sanitize_callback' => 'portfolio_sanitize_font'
 		)
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_google_font',
 	    array(
-	        'default'   => 'http://fonts.googleapis.com/css?family=Open+Sans:700',
+	        'default'   => 'https://fonts.googleapis.com/css?family=Open+Sans:700',
 	        'capability' => 'edit_theme_options',
 	        'sanitize_callback' => 'esc_url_raw'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 		'portfolio_body_font',
 		array(
@@ -117,16 +117,16 @@ function portfolio_init_customizer( $wp_customize ) {
 	    	'sanitize_callback' => 'portfolio_sanitize_font'
 		)
 	);
-		
+
 	$wp_customize->add_setting(
 	    'portfolio_body_google_font',
 	    array(
-	        'default'   => 'http://fonts.googleapis.com/css?family=Open+Sans:400',
+	        'default'   => 'https://fonts.googleapis.com/css?family=Open+Sans:400',
 	        'capability' => 'edit_theme_options',
 	        'sanitize_callback' => 'esc_url_raw'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 		'posts_per_page',
 		array(
@@ -136,25 +136,25 @@ function portfolio_init_customizer( $wp_customize ) {
 			'type' => 'option'
 		)
 	);
-	
+
 	$wp_customize->add_setting(
 		'portfolio_article_column',
-		array( 
+		array(
 			'default'   => '4',
 			'capability' => 'edit_theme_options',
 			'sanitize_callback' => 'portfolio_sanitize_article_column'
 		)
 	);
-	
+
 	$wp_customize->add_setting(
 		'portfolio_date_format',
-		array( 
+		array(
 			'default'   => 'default',
 			'capability' => 'edit_theme_options',
 			'sanitize_callback' => 'portfolio_sanitize_date_format'
 		)
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_content_width',
 	    array(
@@ -163,7 +163,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_portfolio_width',
 	    array(
@@ -172,7 +172,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_word_break',
 	    array(
@@ -181,7 +181,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_full_width_images',
 	    array(
@@ -190,7 +190,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_post_show_featured_image',
 	    array(
@@ -199,7 +199,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_post_show_title',
 	    array(
@@ -208,7 +208,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_post_show_date',
 	    array(
@@ -217,7 +217,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_post_show_category',
 	    array(
@@ -226,7 +226,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_post_show_social',
 	    array(
@@ -235,7 +235,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_post_show_tags',
 	    array(
@@ -244,7 +244,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_post_show_author',
 	    array(
@@ -253,7 +253,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_frontpage_animation',
 	    array(
@@ -262,7 +262,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_show_excerpts',
 	    array(
@@ -271,7 +271,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_show_tags',
 	    array(
@@ -280,7 +280,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_sanitize_checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_whole_overlay_clickable',
 	    array(
@@ -318,7 +318,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'transport' => 'postMessage'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_img_hard_crop',
 	    array(
@@ -328,7 +328,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'transport' => 'postMessage'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_block_h',
 	    array(
@@ -337,7 +337,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_block_h_mobile',
 	    array(
@@ -346,7 +346,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_block_padding',
 	    array(
@@ -355,7 +355,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'sanitize_text_field'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_block_padding_mobile',
 	    array(
@@ -364,7 +364,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'sanitize_text_field'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_excerpt_length',
 	    array(
@@ -373,7 +373,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_item_hover',
 	    array(
@@ -382,7 +382,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_frontpage_animation_type',
 	    array(
@@ -391,7 +391,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_frontpage_animation_speed',
 	    array(
@@ -400,7 +400,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_post_preview_animation',
 	    array(
@@ -409,7 +409,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_post_preview_animation_type'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_show_post_navigation',
 	    array(
@@ -418,7 +418,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_show_post_navigation_same_taxonomy',
 	    array(
@@ -427,7 +427,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_filter_categories',
 	    array(
@@ -436,7 +436,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_meta_type',
 	    array(
@@ -445,16 +445,16 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_meta_types'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
-		'portfolio_filtered_categories', 
+		'portfolio_filtered_categories',
 		array(
 	   		'default' => '',
 	   		'capability' => 'edit_theme_options',
 	        'sanitize_callback' => 'portfolio_validate_category_selection'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_show_topbar_search',
 	    array(
@@ -463,7 +463,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	$wp_customize->add_setting(
 	    'portfolio_show_topbar_social',
 	    array(
@@ -472,20 +472,20 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
 	);
-	
+
 	// Add control for the settings
 	$wp_customize->add_control(
-		new WP_Customize_Image_Control( 
-			$wp_customize, 
-			'portfolio_logo', 
+		new WP_Customize_Image_Control(
+			$wp_customize,
+			'portfolio_logo',
 			array(
 				'label'      => __('Logo image', 'portfolio'),
 				'section'    => 'title_tagline',
 				'settings'   => 'portfolio_logo'
-			) 
+			)
 		)
 	);
-	
+
 	$wp_customize->add_control(
 	    'portfolio_logo_autosize',
 	    array(
@@ -495,19 +495,19 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'active_callback' => 'portfolio_logo_config'
 	    )
 	);
-	
+
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
-			$wp_customize, 
-			'portfolio_primary_color', 
-			array( 
-				'label' => __('Primary Color', 'portfolio'), 
-				'section' => 'colors', 
+			$wp_customize,
+			'portfolio_primary_color',
+			array(
+				'label' => __('Primary Color', 'portfolio'),
+				'section' => 'colors',
 				'settings' => 'portfolio_primary_color'
 			)
 		)
-	);		
-	
+	);
+
 	$wp_customize->add_control(
 	    'portfolio_font',
 	    array(
@@ -521,7 +521,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        	'arial'      		=> 'Arial',
 	        	'impact'     		=> 'Impact',
 	        	'tahoma'     		=> 'Tahoma',
-	            'times'      		=> 'Times New Roman',		            
+	            'times'      		=> 'Times New Roman',
 	            'comic sans ms'     => 'Comic Sans MS',
 	            'courier new'   	=> 'Courier New',
 	            'helvetica'  		=> 'Helvetica'
@@ -538,7 +538,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'active_callback' => 'portfolio_font_url_field'
     	)
 	);
-		
+
 	$wp_customize->add_control(
 	    'portfolio_body_font',
 	    array(
@@ -552,14 +552,14 @@ function portfolio_init_customizer( $wp_customize ) {
 	        	'arial'      		=> 'Arial',
 	        	'impact'     		=> 'Impact',
 	        	'tahoma'     		=> 'Tahoma',
-	            'times'      		=> 'Times New Roman',		            
+	            'times'      		=> 'Times New Roman',
 	            'comic sans ms'     => 'Comic Sans MS',
 	            'courier new'   	=> 'Courier New',
 	            'helvetica'  		=> 'Helvetica'
 	        )
 	   	 )
-	);	
-	
+	);
+
 	$wp_customize->add_control(
 	    'portfolio_body_google_font',
 	    array(
@@ -569,7 +569,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'active_callback' => 'portfolio_body_font_url_field'
     	)
 	);
-	
+
 	$wp_customize->add_control(
 	    'posts_per_page',
 	    array(
@@ -578,7 +578,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'type'     => 'text'
 		)
 	);
-	
+
 	$wp_customize->add_control(
 	    'portfolio_article_column',
 	    array(
@@ -592,7 +592,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        )
 	    )
 	);
-	
+
 	$wp_customize->add_control(
 	    'portfolio_date_format',
 	    array(
@@ -605,7 +605,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        )
 	    )
 	);
-	
+
 	$wp_customize->add_control(
 	    'portfolio_content_width',
 	    array(
@@ -614,7 +614,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'type'     => 'text'
 	    )
 	);
-	
+
 	$wp_customize->add_control(
 	    'portfolio_portfolio_width',
 	    array(
@@ -623,7 +623,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'type'     => 'text'
 	    )
 	);
-	
+
 	$wp_customize->add_control(
         'portfolio_word_break',
         array(
@@ -632,7 +632,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_full_width_images',
         array(
@@ -641,7 +641,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_show_excerpts',
         array(
@@ -659,7 +659,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'type'     => 'checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_control(
 	    'portfolio_whole_overlay_clickable',
 	    array(
@@ -668,7 +668,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'type'     => 'checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_control(
 	    'portfolio_show_topbar_search',
 	    array(
@@ -677,7 +677,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'type'     => 'checkbox'
 	    )
 	);
-	
+
 	$wp_customize->add_control(
 	    'portfolio_show_topbar_social',
 	    array(
@@ -686,7 +686,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	        'type'     => 'checkbox'
 	    )
 	);
-	
+
     $wp_customize->add_control(
         'portfolio_post_show_featured_image',
         array(
@@ -695,7 +695,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_post_show_title',
         array(
@@ -704,7 +704,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_post_show_date',
         array(
@@ -713,7 +713,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_show_post_navigation',
         array(
@@ -722,7 +722,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_show_post_navigation_same_taxonomy',
         array(
@@ -731,7 +731,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_post_show_category',
         array(
@@ -740,7 +740,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_post_show_tags',
         array(
@@ -749,7 +749,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_post_show_social',
         array(
@@ -758,7 +758,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_post_show_author',
         array(
@@ -767,7 +767,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_special_img_size',
         array(
@@ -796,7 +796,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'active_callback' => 'portfolio_img_size_active'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_img_hard_crop',
         array(
@@ -806,7 +806,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'active_callback' => 'portfolio_img_size_active'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_frontpage_animation',
         array(
@@ -815,7 +815,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_item_hover',
         array(
@@ -824,7 +824,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_frontpage_animation_type',
         array(
@@ -842,7 +842,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'active_callback' => 'portfolio_active_animations'
        	 )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_frontpage_animation_speed',
         array(
@@ -857,7 +857,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'active_callback' => 'portfolio_active_animations'
        	 )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_post_preview_animation',
         array(
@@ -874,7 +874,7 @@ function portfolio_init_customizer( $wp_customize ) {
             )
        	 )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_block_h',
         array(
@@ -883,7 +883,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'text'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_block_h_mobile',
         array(
@@ -892,7 +892,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'text'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_block_padding',
         array(
@@ -901,7 +901,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'text'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_block_padding_mobile',
         array(
@@ -910,7 +910,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'text'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_excerpt_length',
         array(
@@ -919,7 +919,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'text'
         )
     );
-    
+
     $wp_customize->add_control(
         'portfolio_filter_categories',
         array(
@@ -928,7 +928,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'type'     => 'checkbox'
         )
     );
-    
+
     $wp_customize->add_control(new GK_Portfolio_Category_Selection(
         $wp_customize,
         'portfolio_filtered_categories',
@@ -938,7 +938,7 @@ function portfolio_init_customizer( $wp_customize ) {
             'active_callback' => 'portfolio_filter_categories'
         )
     ));
-    
+
     $wp_customize->add_control(
         'portfolio_meta_type',
         array(

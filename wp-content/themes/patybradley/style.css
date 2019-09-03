@@ -6,7 +6,7 @@ License: GNU GPL v.2.0
 License URI: LICENSE.txt
 Version: 1.5.2
 Author: GavickPro
-Author URI: http://www.gavick.com
+Author URI: https://www.gavick.com
 Tags: green, gray, white, one-column, fluid-layout, responsive-layout, custom-background, custom-colors, custom-menu, editor-style, featured-images, post-formats, sticky-post, threaded-comments, translation-ready
 */
 
@@ -14,7 +14,7 @@ Tags: green, gray, white, one-column, fluid-layout, responsive-layout, custom-ba
 	1.1 Basic stuff
 	1.2 Containers
 2. Header
-3. Post/Page elements	
+3. Post/Page elements
 	3.1 Navigation
 	3.2 Content
 	3.3 Entry Header
@@ -79,7 +79,7 @@ h2,
 h3,
 h4,
 h5,
-h6 { 
+h6 {
 	color: #363636;
 	font-weight: 300;
 }
@@ -424,7 +424,7 @@ img.wp-smiley,
  * 1.2 Containers
  * ----------------------------------------------------------------------------
  */
- 
+
 .site-main {
 	background-color: #f1f1f1;
 	background-size: cover;
@@ -468,7 +468,7 @@ img.wp-smiley,
 	box-shadow: none;
 	padding: 0;
 	overflow: hidden;
-	width: auto;	
+	width: auto;
 }
 
 #content > article > div {
@@ -964,7 +964,7 @@ ul.nav-menu ul a,
 
 #aside-navigation > div > ul {
 	padding: 20px 0 20px 25px;
-} 
+}
 
 #aside-menu li {
 	font-size: 15px;
@@ -1169,7 +1169,7 @@ ul.nav-menu ul a,
  * 3.4 Entry Content
  * ----------------------------------------------------------------------------
  */
- 
+
 .entry-summary .readon {
  	display: inline-block;
  	font-family: Arial, sans-serif;
@@ -1428,39 +1428,39 @@ footer.entry-meta > .edit-link {
 	z-index: 2;
 }
 
-.gk-format-aside:before { 
+.gk-format-aside:before {
 	content: "\f0f6";
 }
 
-.gk-format-audio:before { 
+.gk-format-audio:before {
 	content: "\f001";
 }
 
-.gk-format-chat:before { 
+.gk-format-chat:before {
 	content: "\f086";
 }
 
-.gk-format-gallery:before { 
+.gk-format-gallery:before {
 	content: "\f00a";
 }
 
-.gk-format-image:before { 
+.gk-format-image:before {
 	content: "\f03e";
 }
 
-.gk-format-link:before { 
+.gk-format-link:before {
 	content: "\f0c1";
 }
 
-.gk-format-quote:before { 
+.gk-format-quote:before {
 	content: "\f10e";
 }
 
-.gk-format-status:before { 
+.gk-format-status:before {
 	content: "\f073";
 }
 
-.gk-format-video:before { 
+.gk-format-video:before {
 	content: "\f03d";
 }
 
@@ -1597,12 +1597,12 @@ footer.entry-meta > .edit-link {
 	padding: 0 0 40px 0;
 	text-align: center;
  }
- 
+
 .pagination-item,
 .paging-navigation {
 	display: block;
 }
- 
+
 .paging-navigation a {
 	padding: 0 25px 0 0;
 }
@@ -2086,7 +2086,7 @@ footer.entry-meta > .edit-link {
 }
 
 .bypostauthor {
-	
+
 }
 
 .comment-post-author {
@@ -2097,7 +2097,7 @@ footer.entry-meta > .edit-link {
 	padding: 2px 5px;
 	position: relative;
 	top: -1px;
-} 
+}
 
 .comments-title,
 .comment-list,
@@ -2373,8 +2373,8 @@ footer.entry-meta > .edit-link {
 #prev-post,
 #next-post {
 	height: 54px;
-	left: 0;	
-	
+	left: 0;
+
 	position: fixed;
 	top: 50%;
 	width: 54px;
@@ -2635,8 +2635,8 @@ article .widget {
 select {
 	max-width: 100%;
 }
-#gk-bottom .wp-caption .wp-caption-text, 
-#gk-bottom .entry-caption, 
+#gk-bottom .wp-caption .wp-caption-text,
+#gk-bottom .entry-caption,
 .gallery-caption {
 	color: #999;
 	font-size: 12px;
@@ -2710,7 +2710,7 @@ select {
 	color: #8e9798;
 }
 
-#gk-bottom p { 
+#gk-bottom p {
 	margin: 0 20px 12px 0;
 }
 #gk-bottom p i {
@@ -2729,8 +2729,8 @@ select {
 	margin-bottom: 12px;
 	padding: 0;
 }
-#gk-bottom dl dd { 
-	margin: 0 20px 12px 4px; 
+#gk-bottom dl dd {
+	margin: 0 20px 12px 4px;
 }
 #gk-bottom dl dt:nth-child(5n) { clear: both; }
 
@@ -2817,7 +2817,7 @@ select {
 	border-top: 1px solid #e5e5e5;
 }
 
-#gk-footer.light-bg .widget_rss .rss-date, 
+#gk-footer.light-bg .widget_rss .rss-date,
 #gk-footer.light-bg .widget_rss li > cite {
 	color: #bbb;
 }
@@ -2850,16 +2850,16 @@ select {
 	.entry-meta  {
 		max-width: 95%;
 	}
-	
+
 	.entry-meta {
 		margin: 0 auto;
 		padding: 0;
 	}
-	
+
 	.author-info {
 		max-width: 100%;
 	}
-	
+
 	.author-avatar .avatar {
 		margin-right: 20px;
 		margin-top: -5px;
@@ -2885,16 +2885,16 @@ select {
 	.format-status .entry-meta {
 		padding-bottom: 40px;
 	}
-	
+
 	.image-navigation {
 		padding: 0 35px!important;
 	}
-	
+
 	.error404 .entry-title span,
 	.attachment .entry-attachment {
 		padding: 35px 35px 20px 35px;
 	}
-	
+
 	.site-content.archive article[data-cols="3"],
 	.site-content.archive article[data-cols="4"] {
 		width: 50%!important;
@@ -2902,12 +2902,12 @@ select {
 }
 
 @media (max-width: 720px) {
-	.site-content.archive #gk-search, 
+	.site-content.archive #gk-search,
 	.search-no-results .page-content {
 		max-width: 95%;
 		padding: 20px 10px 10px 10px;
 	}
-	
+
 	#gk-search input[type="submit"] {
 		margin-top: 10px;
 	}
@@ -2928,7 +2928,7 @@ select {
 		padding: 0;
 		width: 100%;
 	}
-	
+
 	.attachment .entry-title {
 		padding-left: 0;
 		padding-right: 0;
@@ -2940,12 +2940,12 @@ select {
 	#gk-footer .widget {
 		width: 100%!important;
 	}
-	
+
 	.main-navigation {
 		padding: 0 0 30px 0;
 		position: relative;
 	}
-	
+
 	.main-navigation:before {
 		border: 1px solid #777;
 		border-radius: 2px;
@@ -2954,9 +2954,9 @@ select {
 		font-family: Arial, sans-serif;
 		font-size: 16px;
 		font-weight: bold;
-		padding: 8px 16px; 
+		padding: 8px 16px;
 	}
-	
+
 	.nav-menu {
 		background: #fff;
 		border: 1px solid #e5e5e5;
@@ -2964,35 +2964,35 @@ select {
 		position: absolute;
 		width: 300px;
 	}
-	
+
 	.nav-menu li {
 		border-top: 1px solid #e5e5e5;
 		text-align: center;
 		width: 100%;
 	}
-	
+
 	.nav-menu li a {
 		width: 100%;
 	}
-	
+
 	.nav-menu li.current-menu-item > a {
 		border-radius: 0;
 		color: #fff!important;
 	}
-	
+
 	.nav-menu li.current_page_ancestor > a {
 		border: none!important;
 		color: #777;
 	}
-	
+
 	.nav-menu li.current-menu-item > a {
 		color: #fff;
 	}
-	
+
 	.nav-menu li.current-menu-item a + .nav-menu li a {
 		border-top: 0;
 	}
-	
+
 	.nav-menu .sub-menu,
 	.nav-menu .children {
 		background: #f5f5f5;
@@ -3009,66 +3009,66 @@ select {
 		transform: translateY(0px) scale(1);
 		width: 100%;
 	}
-	
+
 	.main-navigation.opened .nav-menu {
 		float: none;
 		margin: 20px auto;
 		position: static;
 	}
-	
+
 	.entry-title {
 		font-size: 26px;
 		padding: 49px 36px 0 36px!important;
 	}
-	
+
 	.post-preview .entry-title {
 		padding: 0!important;
 	}
-	
+
 	#content .post-meta,
 	.entry-content,
 	.entry-summary {
 		padding: 0 36px;
 	}
-	
+
 	.author-description .author-title {
 		font-size: 18px;
 	}
-	
+
 	#comments,
 	.author-info {
 		padding:  32px 36px;
 	}
-	
+
 	.paging-navigation a,
 	.pagination-item {
 		font-size: 12px;
 	}
-	
+
 	.pagination-item {
 		padding: 0 8px;
 	}
-	
+
 	.paging-navigation a {
 		padding: 0 12px 0 0;
 	}
-	
+
 	.paging-navigation .nav-next a {
 		padding: 0 0 0 12px;
 	}
-	
+
 	.site-content.archive {
 		padding-bottom: 40px;
 	}
-	
+
 	.paging-navigation .nav-previous a:after {
 		left: 12px;
 	}
-	
+
 	.paging-navigation .nav-next a:before {
 		left: -12px;
 	}
-	
+
 	.comment-respond {
 		padding: 0;
 	}
@@ -3085,11 +3085,11 @@ select {
 	body {
 		font-size: 14px;
 	}
-	
+
 	.main-navigation:before {
 		font-size: 16px;
 	}
-	
+
 	.site-content.archive article[data-cols="2"],
 	.site-content.archive article[data-cols="3"],
 	.site-content.archive article[data-cols="4"] {
@@ -3103,43 +3103,43 @@ select {
 	#next-post {
 		display: none;
 	}
-	
+
 	#comments, .author-info {
 		padding: 20px 16px;
 	}
-	
+
 	#content .post-meta, .entry-content, .entry-summary {
 		padding: 0 16px;
 	}
-	
+
 	.entry-title {
 		font-size: 20px;
 		padding: 30px 16px 0 16px!important;
 	}
-	
+
 	.entry-content blockquote {
 		line-height: 1.6;
 		margin: 15px 0;
 		padding: 15px;
 	}
-	
+
 	.gk-social-buttons {
 		margin: 25px 0;
 	}
-	
+
 	#content .tags-links {
 		margin-bottom: -20px;
 	}
-	
+
 	.logged-in-as {
 		font-size: 12px;
 		margin: 0;
 	}
-	
+
 	.comment-reply-title {
 		margin: 0 0 20px;
 	}
-	
+
 	#content .article-helper .tags-links {
 		bottom: 22px;
 	}
@@ -3196,9 +3196,9 @@ select {
 	.comment-list .reply {
 		width: 100%;
 	}
-	.comment-metadata, 
-	.comment-awaiting-moderation, 
-	.comment-content, 
+	.comment-metadata,
+	.comment-awaiting-moderation,
+	.comment-content,
 	.comment-list .reply {
 		padding-left: 38px;
 	}

@@ -1,36 +1,36 @@
-<?php 
+<?php
 
 // Add CSS styles generated from GK Cusotmizer settings
 function portfolio_customizer_css() {
-	$google = esc_attr(get_theme_mod('portfolio_google_font', 'http://fonts.googleapis.com/css?family=Open+Sans:700'));
+	$google = esc_attr(get_theme_mod('portfolio_google_font', 'https://fonts.googleapis.com/css?family=Open+Sans:700'));
 	$fname = array();
 	preg_match('@family=(.+)$@is', $google, $fname);
 	$font_family = "'" . str_replace('+', ' ', preg_replace('@:.+@', '', preg_replace('@&.+@', '', $fname[1]))) . "'";
-	
-	$body_google = esc_attr(get_theme_mod('portfolio_body_google_font', 'http://fonts.googleapis.com/css?family=Open+Sans:400'));
+
+	$body_google = esc_attr(get_theme_mod('portfolio_body_google_font', 'https://fonts.googleapis.com/css?family=Open+Sans:400'));
 	$body_fname = array();
 	preg_match('@family=(.+)$@is', $body_google, $body_fname);
 	$body_font_family = "'" . str_replace('+', ' ', preg_replace('@:.+@', '', preg_replace('@&.+@', '', $body_fname[1]))) . "'";
-    
+
     if (get_theme_mod('portfolio_font') == 'google') {
     	$portfolio_font = $font_family;
     } else {
     	$portfolio_font = esc_attr(get_theme_mod('portfolio_font'));
     }
-    
+
     if (get_theme_mod('portfolio_body_font') == 'google') {
     	$body_portfolio_font = $body_font_family;
     } else {
     	$body_portfolio_font = esc_attr(get_theme_mod('portfolio_body_font'));
     }
-    
+
     $primary_color = esc_attr(get_theme_mod('portfolio_primary_color', '#5cc1a9'));
-    
-    ?>   
+
+    ?>
     <style type="text/css">
     	body { font-family: <?php echo $body_portfolio_font; ?> }
         .site-title { font-family: <?php echo $portfolio_font; ?> }
-    
+
     	#primary,
     	#comments,
     	.author-info,
@@ -39,7 +39,7 @@ function portfolio_customizer_css() {
     	.search-no-results .page-content {
     		width: <?php echo get_theme_mod('portfolio_content_width', 700); ?>px;
     	}
-    
+
     	<?php if(get_theme_mod('portfolio_word_break', '0') == '1') : ?>
         body {
             -ms-word-break: break-all;
@@ -51,7 +51,7 @@ function portfolio_customizer_css() {
             hyphens: auto;
         }
         <?php endif; ?>
-    
+
         a,
         a.inverse:active,
         a.inverse:focus,
@@ -122,9 +122,9 @@ function portfolio_customizer_css() {
         .comment-reply-title > span {
         	border-bottom-color: <?php echo $primary_color; ?>;
         }
-        
+
         <?php if(
-        	get_theme_mod('portfolio_logo', '') != '' && 
+        	get_theme_mod('portfolio_logo', '') != '' &&
         	get_theme_mod('portfolio_logo_autosize', '0') == '1'
         ) : ?>
         .site-header,
@@ -134,8 +134,8 @@ function portfolio_customizer_css() {
         }
         <?php endif; ?>
     </style>
-    <?php   
-    
+    <?php
+
     $width = '';
     if ( get_theme_mod('portfolio_article_column', '4') == '4') { $width = '25%'; }
     elseif ( get_theme_mod('portfolio_article_column', '2') == '2') { $width = '50%'; }
@@ -143,8 +143,8 @@ function portfolio_customizer_css() {
 	 ?>
     <style type="text/css">
         .site-content.archive article { width: <?php echo $width ?>; }
-    </style> 
-    <?php 
+    </style>
+    <?php
 }
 
 add_action( 'wp_head', 'portfolio_customizer_css' );

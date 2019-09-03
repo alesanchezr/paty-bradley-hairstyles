@@ -514,7 +514,7 @@ msgstr  ""
 
 #: header.php:21
 msgid   "You're using an unsupported version of Internet Explorer. Please <a "
-        "href=\"http://windows.microsoft.com/en-us/internet-explorer/products/"
+        "href=\"https://windows.microsoft.com/en-us/internet-explorer/products/"
         "ie/home\">upgrade your browser</a> for the best user experience on "
         "our site. Thank you."
 msgstr  ""

@@ -57,56 +57,56 @@ if(!function_exists('portfolio_setup')) {
 	 */
 	function portfolio_setup() {
 		global $content_width;
-		
+
 		if ( ! isset( $content_width ) ) $content_width = get_theme_mod('portfolio_content_width', 700);
-		
+
 		/*
 		 * Makes Portfolio available for translation.
 		 *
 		 */
 		load_theme_textdomain( 'portfolio', get_template_directory() . '/languages' );
-	
+
 		// Adds RSS feed links to <head> for posts and comments.
 		add_theme_support( 'automatic-feed-links' );
-	
+
 		/*
 		 * Switches default core markup for search form, comment form,
 		 * and comments to output valid HTML5.
 		 */
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
-	
+
 		/**
 		 * Add support for the title-tag
 		 *
 		 * @since Portfolio 1.4
 		 */
 		add_theme_support( 'title-tag' );
-	
+
 		/*
 		 * This theme supports all available post formats by default.
-		 * See http://codex.wordpress.org/Post_Formats
+		 * See https://codex.wordpress.org/Post_Formats
 		 */
 		add_theme_support('post-formats', array(
 			'gallery', 'image', 'link', 'quote', 'video'
 		));
-	
+
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menu('primary', __('Navigation Menu', 'portfolio'));
 		register_nav_menu('footer', __('Social Menu', 'portfolio'));
-	
+
 		/*
 		 * This theme uses a custom image size for featured images, displayed on
 		 * "standard" posts and pages.
 		 */
 		add_theme_support('post-thumbnails');
-		
+
 		// Support for custom background
 		$args = array(
 			'default-color' => 'f1f1f1',
 			'wp-head-callback' => 'portfolio_custom_background_callback'
 		);
 		add_theme_support('custom-background', $args);
-	
+
 		// This theme uses its own gallery styles.
 		add_filter('use_default_gallery_style', '__return_false');
 	}
@@ -120,36 +120,36 @@ if(!function_exists('portfolio_custom_background_callback')) {
 	 *
 	 * @return void
 	 */
-	
+
 	function portfolio_custom_background_callback() {
 	    $background = get_background_image();
 	    $color = get_background_color();
 	    if ( ! $background && ! $color )
 	        return;
-	 
+
 	    $style = $color ? "background-color: #$color;" : '';
-	 
+
 	    if ($background) {
 	        $image = " background-image: url('$background');";
-	 
+
 	        $repeat = get_theme_mod('background_repeat', 'repeat');
 	        if (!in_array($repeat, array('no-repeat', 'repeat-x', 'repeat-y', 'repeat'))) {
 	            $repeat = 'repeat';
 	        }
 	        $repeat = " background-repeat: $repeat;";
-	 
+
 	        $position = get_theme_mod('background_position_x', 'left');
 	        if (!in_array($position, array( 'center', 'right', 'left'))) {
 	            $position = 'left';
 	        }
 	        $position = " background-position: top $position;";
-	 
+
 	        $attachment = get_theme_mod( 'background_attachment', 'scroll' );
 	        if (!in_array($attachment, array( 'fixed', 'scroll' ))) {
 	            $attachment = 'scroll';
 	        }
 	        $attachment = " background-attachment: $attachment;";
-	 
+
 	        $style .= $image . $repeat . $position . $attachment;
 	    }
 	?>
@@ -187,10 +187,10 @@ if(!function_exists('portfolio_scripts')) {
 		if (is_singular() && comments_open() && get_option('thread_comments')) {
 			wp_enqueue_script( 'comment-reply' );
 		}
-	
+
 		// Loads JavaScript file with functionality specific to Portfolio.
 		wp_enqueue_script('portfolio-script', get_template_directory_uri() . '/js/functions.js', array('jquery'), '', true);
-		
+
 		// Loads JavaScript file for responsive video.
 		wp_enqueue_script('portfolio-video', get_template_directory_uri() . '/js/jquery.fitvids.js', false, false, true);
 	}
@@ -207,24 +207,24 @@ if(!function_exists('portfolio_styles')) {
 	function portfolio_styles() {
 		// Add normalize stylesheet.
 		wp_enqueue_style('portfolio-normalize', get_template_directory_uri() . '/css/normalize.css', false);
-	
+
 		// Add Google font from the customizer
-		wp_enqueue_style('portfolio-fonts', get_theme_mod('portfolio_google_font', 'http://fonts.googleapis.com/css?family=Open+Sans:700'), false);
-		
-		if(get_theme_mod('portfolio_google_font', 'http://fonts.googleapis.com/css?family=Open+Sans:700') != get_theme_mod('portfolio_body_google_font', 'http://fonts.googleapis.com/css?family=Open+Sans:400')) {
-			wp_enqueue_style('portfolio-fonts-body', get_theme_mod('portfolio_body_google_font', 'http://fonts.googleapis.com/css?family=Open+Sans:400'), false);
+		wp_enqueue_style('portfolio-fonts', get_theme_mod('portfolio_google_font', 'https://fonts.googleapis.com/css?family=Open+Sans:700'), false);
+
+		if(get_theme_mod('portfolio_google_font', 'https://fonts.googleapis.com/css?family=Open+Sans:700') != get_theme_mod('portfolio_body_google_font', 'https://fonts.googleapis.com/css?family=Open+Sans:400')) {
+			wp_enqueue_style('portfolio-fonts-body', get_theme_mod('portfolio_body_google_font', 'https://fonts.googleapis.com/css?family=Open+Sans:400'), false);
 		}
-		
+
 		// Font Awesome
 		wp_enqueue_style('portfolio-font-awesome', get_template_directory_uri() . '/css/font.awesome.css', false, '4.0.3');
-	
+
 		// Loads our main stylesheet.
 		wp_enqueue_style('portfolio-style', get_stylesheet_uri());
-		
+
 		// Loads the Internet Explorer specific stylesheet.
 		wp_enqueue_style('portfolio-ie8', get_template_directory_uri() . '/css/ie8.css', array('portfolio-style'));
 		wp_style_add_data('portfolio-ie8', 'conditional', 'lt IE 9');
-		
+
 		wp_enqueue_style('portfolio-ie9', get_template_directory_uri() . '/css/ie9.css', array('portfolio-style'));
 		wp_style_add_data('portfolio-ie9', 'conditional', 'IE 9');
 	}
@@ -262,27 +262,27 @@ if (!function_exists('portfolio_paging_nav')) {
 	 */
 	function portfolio_paging_nav() {
 		global $wp_query, $paged;
-		
+
 		//display number of current page
 		$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-	
+
 		// Don't print empty markup if there's only one page.
 		if ( $wp_query->max_num_pages < 2 )
 			return;
 		?>
 		<nav class="navigation paging-navigation" role="navigation">
 				<div class="nav-links">
-		
+
 					<?php if (get_next_posts_link()) : ?>
 						<div class="nav-previous"><?php next_posts_link( __( 'Older posts', 'portfolio' ) ); ?></div>
 					<?php endif; ?>
-								
-					<span class="pagination-item"><?php _e( 'Page', 'portfolio' )?> <?php echo $paged ?> <?php _e( 'of', 'portfolio' )?> <?php echo $wp_query->max_num_pages ?></span>			
-		
+
+					<span class="pagination-item"><?php _e( 'Page', 'portfolio' )?> <?php echo $paged ?> <?php _e( 'of', 'portfolio' )?> <?php echo $wp_query->max_num_pages ?></span>
+
 					<?php if (get_previous_posts_link()) : ?>
 						<div class="nav-next"><?php previous_posts_link( __( 'Newer posts', 'portfolio' ) ); ?></div>
 					<?php endif; ?>
-		
+
 				</div><!-- .nav-links -->
 			</nav><!-- .navigation -->
 		<?php
@@ -291,21 +291,21 @@ if (!function_exists('portfolio_paging_nav')) {
 
 if(!function_exists('portfolio_video_code')) {
 	function portfolio_video_code() {
-		$video_condition = stripos(get_the_content(), '</iframe>') !== FALSE || stripos(get_the_content(), '</video>') !== FALSE; 
-		
+		$video_condition = stripos(get_the_content(), '</iframe>') !== FALSE || stripos(get_the_content(), '</video>') !== FALSE;
+
 		if($video_condition) {
 			$video_code = '';
-			
+
 			if(stripos(get_the_content(), '</iframe>') !== FALSE) {
 				$start = stripos(get_the_content(), '<iframe');
 				$len = strlen(substr(get_the_content(), $start, stripos(get_the_content(), '</iframe>', $start)));
-				$video_code = substr(get_the_content(), $start, $len + 9); 
+				$video_code = substr(get_the_content(), $start, $len + 9);
 			} elseif(stripos(get_the_content(), '</video>') !== FALSE) {
 				$start = stripos(get_the_content(), '<video');
 				$len = strlen(substr(get_the_content(), $start, stripos(get_the_content(), '</video>', $start)));
-				$video_code = substr(get_the_content(), $start, $len + 8); 
+				$video_code = substr(get_the_content(), $start, $len + 8);
 			}
-			
+
 			return $video_code;
 		} else {
 			return FALSE;
@@ -336,7 +336,7 @@ if (!function_exists('portfolio_the_attached_image')) {
 		$attachment_size     = apply_filters( 'portfolio_attachment_size', array( 724, 724 ) );
 		$next_attachment_url = wp_get_attachment_url();
 		$post                = get_post();
-	
+
 		/*
 		 * Grab the IDs of all the image attachments in a gallery so we can get the URL
 		 * of the next adjacent image in a gallery, or the first image (if we're
@@ -353,7 +353,7 @@ if (!function_exists('portfolio_the_attached_image')) {
 			'order'          => 'ASC',
 			'orderby'        => 'menu_order ID'
 		));
-	
+
 		// If there is more than 1 attachment in a gallery...
 		if (count($attachment_ids) > 1) {
 			foreach ($attachment_ids as $attachment_id) {
@@ -362,7 +362,7 @@ if (!function_exists('portfolio_the_attached_image')) {
 					break;
 				}
 			}
-	
+
 			// get the URL of the next image attachment...
 			if ($next_id) {
 				$next_attachment_url = get_attachment_link($next_id);
@@ -370,7 +370,7 @@ if (!function_exists('portfolio_the_attached_image')) {
 				$next_attachment_url = get_attachment_link(array_shift($attachment_ids));
 			}
 		}
-	
+
 		printf('<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
 			esc_url($next_attachment_url),
 			the_title_attribute(array('echo' => false)),
@@ -397,16 +397,16 @@ if(!function_exists('portfolio_social_button')) {
 		if(!is_feed() && !is_home() && !is_page() && get_theme_mod('portfolio_post_show_social', '1') == '1') {
 			$content = $content . '<div class="gk-social-buttons">
 			<span class="gk-social-label">'.__( 'Share:', 'portfolio' ).'</span>
-			<a class="gk-social-twitter" href="http://twitter.com/share?text='.urlencode($title).'&amp;url='.urlencode($permalink).'"
+			<a class="gk-social-twitter" href="https://twitter.com/share?text='.urlencode($title).'&amp;url='.urlencode($permalink).'"
 	            onclick="window.open(this.href, \'twitter-share\', \'width=550,height=235\');return false;">
 	            <span class="social__icon--hidden">Twitter</span>
-	        </a>    
-				
+	        </a>
+
 			<a class="gk-social-fb" href="https://www.facebook.com/sharer/sharer.php?u='.urlencode($permalink).'"
 			     onclick="window.open(this.href, \'facebook-share\',\'width=580,height=296\');return false;">
 			    <span class="social-icon-hidden">Facebook</span>
 			</a>
-			
+
 			<a class="gk-social-gplus" href="https://plus.google.com/share?url='.urlencode($permalink).'"
 	           onclick="window.open(this.href, \'google-plus-share\', \'width=490,height=530\');return false;">
 	            <span class="social__icon--hidden">Google+</span>
@@ -438,7 +438,7 @@ if(get_theme_mod('portfolio_special_img_size', '0') == '1') {
 			return $newsizes;
 		}
 	}
-	
+
 	add_image_size('gk-portfolio-size', get_theme_mod('portfolio_img_w', 300), get_theme_mod('portfolio_img_h', 400), get_theme_mod('portfolio_img_hard_crop', '1') == '1');
 	add_filter('image_size_names_choose', 'portfolio_image_sizes');
 }
@@ -461,12 +461,12 @@ if (!function_exists('portfolio_filter_for_categories')) {
 	function portfolio_filter_for_categories($query) {
 	    if (
 	    	get_theme_mod('portfolio_filter_categories', '') != '' &&
-	    	$query->is_main_query() && 
+	    	$query->is_main_query() &&
 	    	is_home()
 	    ) {
 	        $query->set('cat', get_theme_mod('portfolio_filtered_categories', ''));
 	    }
 	}
-	
+
 	add_action('pre_get_posts', 'portfolio_filter_for_categories');
 }
