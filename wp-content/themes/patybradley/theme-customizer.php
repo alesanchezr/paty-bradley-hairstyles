@@ -160,7 +160,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	    array(
 	        'default'   => '700px',
 	        'capability' => 'edit_theme_options',
-	        'sanitize_callback' => 'portfolio_intval'
+	        'sanitize_callback' => 'sanitize_text_field'
 	    )
 	);
 
