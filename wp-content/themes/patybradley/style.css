@@ -3228,7 +3228,7 @@ select {
 	}
 }
 
-.photonic-login-box a.auth-button, .photonic-login-box a.auth-button:visited, .photonic-more-button, .photonic-more-button:visited, .photonic-show-gallery-button, .photonic-show-gallery-button:visited{
-    width: 100%;
+.photonic-more-button.photonic-more-dynamic{
+    width: 100% !important;
     margin-top: 20px !important;
 }
