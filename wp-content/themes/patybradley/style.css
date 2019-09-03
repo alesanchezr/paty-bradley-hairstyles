@@ -3227,3 +3227,8 @@ select {
 		display: none;
 	}
 }
+
+.photonic-login-box a.auth-button, .photonic-login-box a.auth-button:visited, .photonic-more-button, .photonic-more-button:visited, .photonic-show-gallery-button, .photonic-show-gallery-button:visited{
+    width: 100%;
+    margin-top: 20px !important;
+}
