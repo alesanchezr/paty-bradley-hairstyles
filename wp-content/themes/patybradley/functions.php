@@ -58,7 +58,7 @@ if(!function_exists('portfolio_setup')) {
 	function portfolio_setup() {
 		global $content_width;
 
-		if ( ! isset( $content_width ) ) $content_width = get_theme_mod('portfolio_content_width', 700);
+		if ( ! isset( $content_width ) ) $content_width = get_theme_mod('portfolio_content_width', "700px");
 
 		/*
 		 * Makes Portfolio available for translation.

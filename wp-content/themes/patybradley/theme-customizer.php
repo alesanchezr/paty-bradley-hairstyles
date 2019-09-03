@@ -158,7 +158,7 @@ function portfolio_init_customizer( $wp_customize ) {
 	$wp_customize->add_setting(
 	    'portfolio_content_width',
 	    array(
-	        'default'   => '700',
+	        'default'   => '700px',
 	        'capability' => 'edit_theme_options',
 	        'sanitize_callback' => 'portfolio_intval'
 	    )
